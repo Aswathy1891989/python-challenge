@@ -25,9 +25,9 @@ def findSentenceEnd(paragraph):
 
 		
 
-
+textFileChoice=input("Enter the text file for Paragraph Analysis : ")
 #set the file path
-filePath=os.path.join("raw_data","paragraph_1.txt")
+filePath=os.path.join("raw_data",textFileChoice)
 fileOpen=open(filePath,'r')
 contentofFile=fileOpen.read()
 sentenceSplit=findSentenceEnd(contentofFile)
