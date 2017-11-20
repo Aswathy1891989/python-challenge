@@ -37,13 +37,13 @@ letterCount=0
 averageSentencelength=0
 wordsList=[]
 for word in sentenceSplit:
-	#print(word.strip())
+	#spliting words at space
 	wordsList=word.split(' ')
-	#print(wordsList)
-	#print("Sentence Length",len(wordsList))
-	#print("-------------------------------")
+	#increment sentence count by 1
 	sentenceCount+=1
+	#calculate wordcount
 	wordCount+=len(wordsList)
+	#find out length of each word
 	for character in wordsList:
 		letterCount+=len(character)
 		
@@ -53,5 +53,5 @@ print("Paragraph Analysis")
 print("--------------------")
 print("Approximate Word Count ",wordCount)
 print("Approximate Sentence Count ",sentenceCount)
-print("Average Letter Count ", (letterCount+0.0)/wordCount)
-print("Average Word Count ",(wordCount+0.0)/sentenceCount)
+print("Average Letter Count ", (letterCount+0.0)/wordCount) #avaerage letters per words
+print("Average Word Count ",(wordCount+0.0)/sentenceCount)  #average words per sentence
