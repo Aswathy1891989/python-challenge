@@ -35,6 +35,7 @@ def findSentenceEnd(textContent):
         (?<!  Dr\.   )			 # Don't end sentence on "Dr."
         (?<!  Prof\. )			 # Don't end sentence on "Prof."
         (?<!  Sr\.   )			 # Don't end sentence on "Sr."
+        (?<!  \s[A-Z]\.)		 #Don't end sentence on Middle Name followed by dot
         \s+               		 # Split on whitespace .
         """, 
         re.IGNORECASE | re.VERBOSE)			#ignore case and treats as verbose(that is spaces, tabs, and carriage returns are not matched as spaces, tabs, and carriage returns and comments )
@@ -59,38 +60,44 @@ while choice=="y":
 		#get teh content of file using read()
 		contentofFile=fileOpen.read()
 		#call the function to split sentence
-		sentenceSplit=findSentenceEnd(contentofFile)
-		#initialize counting variables to 0
-		sentenceCount=0
-		wordCount=0
-		letterCount=0
-		averageSentencelength=0
-		#create list for storing words
-		wordsList=[]
-		#Iterate through sentence list
-		for word in sentenceSplit:
-			#spliting words at space
-			wordsList=word.split(' ')
-			#increment sentence count by 1
-			sentenceCount+=1
-			#calculate wordcount
-			wordCount+=len(wordsList)
-			#find out length of each word as the letter count
-			for character in wordsList:
-				letterCount+=len(character)
+		splitParagraphs=re.split("\n\n+",contentofFile)
+		totParagraphs=len(splitParagraphs)
+		noOfParagraphs=0
+		for splitParagraph in splitParagraphs:
+				sentenceSplit=findSentenceEnd(splitParagraph)
+				#initialize counting variables to 0
+				sentenceCount=0
+				wordCount=0
+				letterCount=0
+				averageSentencelength=0
+				#create list for storing words
+				wordsList=[]
+				#Iterate through sentence list
+				for word in sentenceSplit:
+					#spliting words at space
+					wordsList=word.split(' ')
+					#increment sentence count by 1
+					sentenceCount+=1
+					#calculate wordcount
+					wordCount+=len(wordsList)
+					#find out length of each word as the letter count
+					for character in wordsList:
+						letterCount+=len(character)
 
-		
-			
-		print("Paragraph Analysis for Text file : " + textFileChoice)
-		print("---------------------------------------------------------------")
-		#print words count
-		print("Approximate Word Count ",wordCount)
-		#print no.of sentence
-		print("Approximate Sentence Count ",sentenceCount)
-		#print avaerage letters per words
-		print("Average Letter Count ", (letterCount+0.0)/wordCount) 
-		#print average words per sentence
-		print("Average Word Count ",(wordCount+0.0)/sentenceCount)
+				noOfParagraphs+=1
+				
+				print("Paragraph Analysis for Text file : " + textFileChoice)
+				print("---------------------------------------------------------------")
+				print("Paragraph No",noOfParagraphs)
+				print("Paragraph\n",splitParagraph)
+				#print words count
+				print("Approximate Word Count ",wordCount)
+				#print no.of sentence
+				print("Approximate Sentence Count ",sentenceCount)
+				#print avaerage letters per words
+				print("Average Letter Count ", (letterCount+0.0)/wordCount) 
+				#print average words per sentence
+				print("Average Word Count ",(wordCount+0.0)/sentenceCount)
 	#exception for file not existing
 	except IOError:
 		print("Error: Sorry File does not appear to exist.")
