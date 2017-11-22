@@ -1,12 +1,12 @@
  PyParagraph
 
-![Language](Images/language.jpg)
+
 
 Here the task is to play the role of chief linguist at a local learning academy. As chief linguist, you are responsible for assessing the complexity of various passages of writing, ranging from the sophomoric Twilight novel to the nauseatingly high-minded research article. Having read so many passages, you've since come up with a fairly simple set of metrics for assessing complexity.
 
 So the task is to create a Python script to automate the analysis of any such passage using these metrics. Your script will need to do the following:
 
-* Import a text file filled with a paragraph o.
+* Import a text file filled with a paragraph .
 
 * Assess the passage for each of the following:
 
