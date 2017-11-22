@@ -65,7 +65,7 @@ while choice=="y":
 		sentenceCount=0
 		wordCount=0
 		letterCount=0
-		averageSentencelength=0
+		
 		#create list for storing words
 		wordsList=[]
 		#Iterate through sentence list
@@ -90,7 +90,7 @@ while choice=="y":
 		#print avaerage letters per words
 		print("Average Letter Count ", (letterCount+0.0)/wordCount) 
 		#print average words per sentence
-		print("Average Word Count ",(wordCount+0.0)/sentenceCount)
+		print("Average Sentence Length",(wordCount+0.0)/sentenceCount)
 	#exception for file not existing
 	except IOError:
 		print("Error: Sorry File does not appear to exist.")
