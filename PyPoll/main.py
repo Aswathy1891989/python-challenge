@@ -1,39 +1,55 @@
+#import packages
 import os
 import csv
 import operator
 import collections
-
+#set path for  csv file
 filePath=os.path.join("raw_data","election_data_1.csv")
+#set winner vote as zero
 Winner=0
-
+#open csv file
 with open(filePath) as fileOpen:
+	#read file
 	readFile1=csv.reader(fileOpen,delimiter=',')
-#	readFile2=csv.reader(fileOpen,delimiter=',')
-	
+	#skip header
 	next(readFile1)
-
+	#declare counts dictionary as counter object
 	counts = collections.Counter()
+	#read each row in file
 	for row in readFile1:
+		#set count as value for keys in the dictionary
 		counts[row[2]]+=1
+#open csv file to count total votes=total rows
 with open(filePath) as fileOpen:
 	readFile1=csv.reader(fileOpen,delimiter="'")
 	totalVotes=len(list(readFile1))
-    	
+
+#*********Print to Terminal    	
 print("Election Results")		
 print("--------------------------------")
 print("Total Votes: ",totalVotes)
 print("--------------------------------")
+#print contents of dictionary
 for showItems,showKeys in counts.items():
+	#calculate the percentage vote
 	percentageVote=(showKeys/totalVotes)*100
 	print(showItems, " : ","%.1f" %percentageVote,"%  (",showKeys,")")
+	#find the winner
 	if showKeys>Winner:
 		Winner=showKeys
 		winnerName=showItems
+
 print("--------------------------------")
 print("Winner: ",winnerName)
 print("--------------------------------")
+
+
+#************Print to File
+#set path of text file to write
 fileWritePath=os.path.join("raw_data","Election_Report.txt")
+#open file in write mode
 fileWriter=open(fileWritePath,"w")
+#Write Contents
 fileWriter.write("Election Results\n")
 fileWriter.write("--------------------------------\n")
 fileWriter.writelines("Total Votes: "+str(totalVotes)+"\n")
@@ -46,4 +62,5 @@ fileWriter.write("--------------------------------\n")
 fileWriter.write("Winner: "+winnerName)
 fileWriter.write("\n")
 fileWriter.write("--------------------------------\n")
+#Close File
 fileWriter.close()
