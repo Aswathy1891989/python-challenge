@@ -4,9 +4,10 @@ import csv
 import operator
 import collections
 #set path for  csv file
-filePath=os.path.join("raw_data","election_data_1.csv")
+filePath=os.path.join("raw_data","election_data_2.csv")
 #set winner vote as zero
 Winner=0
+totalVotes=0
 #open csv file
 with open(filePath) as fileOpen:
 	#read file
@@ -19,15 +20,14 @@ with open(filePath) as fileOpen:
 	for row in readFile1:
 		#set count as value for keys in the dictionary
 		counts[row[2]]+=1
-#open csv file to count total votes=total rows
-with open(filePath) as fileOpen:
-	readFile1=csv.reader(fileOpen,delimiter="'")
-	totalVotes=len(list(readFile1))
+		#count total votes
+		totalVotes+=1
 
 #*********Print to Terminal    	
 print("Election Results")		
 print("--------------------------------")
 print("Total Votes: ",totalVotes)
+
 print("--------------------------------")
 #print contents of dictionary
 for showItems,showKeys in counts.items():
