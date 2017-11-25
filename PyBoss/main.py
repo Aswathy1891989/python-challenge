@@ -1,11 +1,11 @@
-
+#import packages
 import os
 import csv
 import operator
 import collections
 import datetime
 abbreState=""
-#importing durectory for state abbreviations
+#importing directory for state abbreviations
 from us_state_abbrev import us_state_abbrev
 #set path for  csv file
 filePath=os.path.join("raw_data","employee_data2.csv")
