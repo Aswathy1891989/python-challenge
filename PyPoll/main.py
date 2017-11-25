@@ -13,15 +13,18 @@ with open(filePath) as fileOpen:
 	#read file
 	readFile1=csv.reader(fileOpen,delimiter=',')
 	#skip header
-	next(readFile1)
+	header=next(readFile1)
+	noOfCol=len(header)
 	#declare counts dictionary as counter object
 	counts = collections.Counter()
 	#read each row in file
 	for row in readFile1:
-		#set count as value for keys in the dictionary
-		counts[row[2]]+=1
-		#count total votes
-		totalVotes+=1
+		for i in range(0,noOfCol):
+			if header[i]=="Candidate":
+				#set count as value for keys in the dictionary
+				counts[row[i]]+=1
+				#count total votes
+				totalVotes+=1
 
 #*********Print to Terminal    	
 print("Election Results")		
