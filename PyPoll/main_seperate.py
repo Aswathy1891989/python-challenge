@@ -54,12 +54,9 @@ try:
 	#seperate filename and extension
 	newFile,ext=fileName.split(".")
 	#create text file based on csv files
-	if fileName=="election_data_1.csv":	
-		fileWritePath=os.path.join("raw_data",newFile+"_Analysis_Report.txt")
-	elif fileName=="election_data_2.csv":
-		fileWritePath=os.path.join("raw_data",newFile+"_Analysis_Report.txt")
-	else:
-		fileWritePath=os.path.join("raw_data",newFile+"_Analysis_Report.txt")
+	
+	fileWritePath=os.path.join("raw_data",newFile+"_Analysis_Report.txt")
+	
 
 	#open file in write mode
 	fileWriter=open(fileWritePath,"w")
@@ -80,3 +77,7 @@ try:
 	fileWriter.close()
 except IOError:
 		print("Error: Sorry "+fileName+ "  does not appear to exist.")
+
+
+
+#**************************************************************************END*************************************************************************************************************************#

@@ -80,17 +80,36 @@ while choice=="y":
 			for character in wordsList:
 				letterCount+=len(character)
 
-		
+		newFile,ext=textFileChoice.split(".")
+		fileWritePath=os.path.join("raw_data",newFile+"_Analysis_Report.txt")	
+
+		#open file in write mode
+		fileWriter=open(fileWritePath,"w")#create text file based on text files
+
 		print("Paragraph Analysis for Text file : " + textFileChoice)
+		fileWriter.write("Paragraph Analysis for Text file : " + textFileChoice)
 		print("---------------------------------------------------------------")
+		fileWriter.write("\n")
+		fileWriter.write("---------------------------------------------------------------")
 		#print words count
-		print("Approximate Word Count ",wordCount)
+		print("Approximate Word Count :",wordCount)
+		fileWriter.write("\n")
+		fileWriter.write("Approximate Word Count :"+str(wordCount))
 		#print no.of sentence
-		print("Approximate Sentence Count ",sentenceCount)
+		print("Approximate Sentence Count :",sentenceCount)
+		fileWriter.write("\n")
+		fileWriter.write("Approximate Sentence Count :"+str(sentenceCount))
 		#print avaerage letters per words
-		print("Average Letter Count ", (letterCount+0.0)/wordCount) 
+		print("Average Letter Count :", (letterCount+0.0)/wordCount) 
+		fileWriter.write("\n")
+		fileWriter.write("Average Letter Count :"+ str((letterCount+0.0)/wordCount))
 		#print average words per sentence
-		print("Average Sentence Length",(wordCount+0.0)/sentenceCount)
+		print("Average Sentence Length :",(wordCount+0.0)/sentenceCount)
+		fileWriter.write("\n")
+		fileWriter.write("Average Sentence Length :"+str((wordCount+0.0)/sentenceCount))
+			
+		fileWriter.close()
+		
 	#exception for file not existing
 	except IOError:
 		print("Error: Sorry File does not appear to exist.")
