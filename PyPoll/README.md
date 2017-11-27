@@ -34,3 +34,8 @@ Winner: Gomez
 
 The final script must be able to handle any such similarly-structured dataset in the future and the final script  prints the analysis to the terminal and exports a text file with the results.
 
+main_seperate.py:
+Reads different csv files and generates reports in different files
+
+main_combine.py:
+Reads different election csv files and produce combined result
