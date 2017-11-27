@@ -9,7 +9,7 @@ filePath2=os.path.join("raw_data","election_data_2.csv")
 #set winner vote as zero
 Winner=0
 totalVotes=0
-#open csv file
+#open first csv file
 with open(filePath1) as fileOpen1:
 	#read file
 	readFile1=csv.reader(fileOpen1,delimiter=',')
@@ -28,15 +28,14 @@ with open(filePath1) as fileOpen1:
 				totalVotes+=1
 
 
-l e4nl
+#opening and processing second file
 with open(filePath2) as fileOpen2:
 	#read file
 	readFile2=csv.reader(fileOpen2,delimiter=',')
 	#skip header
 	header2=next(readFile2)
 	noOfCol2=len(header2)
-	#declare counts dictionary as counter object
-	#counts = collections.Counter()
+		
 	#read each row in file
 	for row2 in readFile2:
 		for i in range(0,noOfCol2):
