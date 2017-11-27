@@ -4,25 +4,45 @@ import csv
 import operator
 import collections
 #set path for  csv file
-filePath=os.path.join("raw_data","election_data_2.csv")
+filePath1=os.path.join("raw_data","election_data_1.csv")
+filePath2=os.path.join("raw_data","election_data_2.csv")
 #set winner vote as zero
 Winner=0
 totalVotes=0
 #open csv file
-with open(filePath) as fileOpen:
+with open(filePath1) as fileOpen1:
 	#read file
-	readFile1=csv.reader(fileOpen,delimiter=',')
+	readFile1=csv.reader(fileOpen1,delimiter=',')
 	#skip header
-	header=next(readFile1)
-	noOfCol=len(header)
+	header1=next(readFile1)
+	noOfCol1=len(header1)
 	#declare counts dictionary as counter object
 	counts = collections.Counter()
 	#read each row in file
-	for row in readFile1:
-		for i in range(0,noOfCol):
-			if header[i]=="Candidate":
+	for row1 in readFile1:
+		for i in range(0,noOfCol1):
+			if header1[i]=="Candidate":
 				#set count as value for keys in the dictionary
-				counts[row[i]]+=1
+				counts[row1[i]]+=1
+				#count total votes
+				totalVotes+=1
+
+
+l e4nl
+with open(filePath2) as fileOpen2:
+	#read file
+	readFile2=csv.reader(fileOpen2,delimiter=',')
+	#skip header
+	header2=next(readFile2)
+	noOfCol2=len(header2)
+	#declare counts dictionary as counter object
+	#counts = collections.Counter()
+	#read each row in file
+	for row2 in readFile2:
+		for i in range(0,noOfCol2):
+			if header2[i]=="Candidate":
+				#set count as value for keys in the dictionary
+				counts[row2[i]]+=1
 				#count total votes
 				totalVotes+=1
 
