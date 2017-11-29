@@ -1,8 +1,8 @@
 #import packages
 import os
 import csv
-import operator
-import collections
+#import operator
+#import collections
 import datetime
 abbreState=""
 #importing directory for state abbreviations
