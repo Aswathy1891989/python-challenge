@@ -69,7 +69,7 @@ try:
 
 	#************Print to File
 	#set path of text file to write
-	fileWritePath=os.path.join("raw_data","Combined_Election_Report.txt")
+	fileWritePath=os.path.join("Output","Combined_Election_Report.txt")
 	#open file in write mode
 	fileWriter=open(fileWritePath,"w")
 	#Write Contents

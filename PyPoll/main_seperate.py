@@ -19,13 +19,14 @@ try:
 		noOfCol1=len(header1)
 		#declare counts dictionary as counter object
 		counts = collections.Counter()
+		c={}
 		#read each row in file
 		for row1 in readFile1:
 			for i in range(0,noOfCol1):
 				if header1[i]=="Candidate":
 					#set count as value for keys in the dictionary
 					counts[row1[i]]+=1
-					#count total votes
+					
 					totalVotes+=1
 
 
@@ -48,14 +49,14 @@ try:
 	print("--------------------------------")
 	print("Winner: ",winnerName)
 	print("--------------------------------")
-
+	
 #************Print to File
 	
 	#seperate filename and extension
 	newFile,ext=fileName.split(".")
 	#create text file based on csv files
 	
-	fileWritePath=os.path.join("raw_data",newFile+"_Analysis_Report.txt")
+	fileWritePath=os.path.join("Output",newFile+"_Analysis_Report.txt")
 	
 
 	#open file in write mode

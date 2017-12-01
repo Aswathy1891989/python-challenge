@@ -81,7 +81,7 @@ while choice=="y":
 				letterCount+=len(character)
 
 		newFile,ext=textFileChoice.split(".")
-		fileWritePath=os.path.join("raw_data",newFile+"_Analysis_Report.txt")	
+		fileWritePath=os.path.join("Output",newFile+"_Analysis_Report.txt")	
 
 		#open file in write mode
 		fileWriter=open(fileWritePath,"w")#create text file based on text files

@@ -14,7 +14,7 @@ try:
 	filePath=os.path.join("raw_data",fileName)
 	newFile,ext=fileName.split(".")
 	#set file path for write
-	fileWritePath=os.path.join("raw_data",newFile+"_modified.csv")
+	fileWritePath=os.path.join("Output",newFile+"_modified.csv")
 	#open file in write mode
 	csvfile= open(fileWritePath, 'w', newline='') 
 	#creating writer object
